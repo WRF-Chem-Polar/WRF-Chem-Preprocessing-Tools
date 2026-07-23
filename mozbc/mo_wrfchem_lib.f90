@@ -99,7 +99,7 @@
       integer :: dims(4)
 !ggp increase size to 70
       character(len=70) :: attribute
-      character(len=70) :: filespec(2)
+      character(len=256) :: filespec(2)
       character(len=32) :: varname
       character(len=32) :: dtstring
       character(len=19) :: tstring
@@ -441,14 +441,16 @@ any_missing : &
 !     local variables
 !------------------------------------------------------------------
       logical :: lexist
-      character(len=132) :: filenm
+      character(len=256) :: filenm
       character(len=19)  :: tstring
 
       call mz2wrf_time( tstring, date, secs )
       if( len_trim( met_file_suffix ) > 0 ) then
-         filenm = trim( wrf_dir ) // trim( met_file_prefix) // trim(met_file_separator) // domain_name // trim(met_file_separator) // tstring // trim(met_file_suffix)
+         filenm = trim( wrf_dir ) // trim( met_file_prefix) // trim(met_file_separator) // domain_name // trim(met_file_separator) &
+                  // tstring // trim(met_file_suffix)
       else
-         filenm = trim( wrf_dir ) // trim( met_file_prefix) // trim(met_file_separator) // domain_name // trim(met_file_separator) // tstring
+         filenm = trim( wrf_dir ) // trim( met_file_prefix) // trim(met_file_separator) // domain_name // trim(met_file_separator) &
+                  // tstring
       end if
       inquire( exist=lexist, file = trim( filenm ) )
       check_wrfps = lexist
@@ -854,14 +856,16 @@ is_trend : &
       integer :: status
       integer :: varid
       integer :: ncid_bc
-      character(len=132) :: filenm
+      character(len=256) :: filenm
       character(len=19)  :: tstring
 
       call mz2wrf_time( tstring, date, datesec )
       if( len_trim( met_file_suffix ) > 0 ) then
-         filenm = trim( wrf_dir ) // trim( met_file_prefix) // trim(met_file_separator) // domain_name // trim(met_file_separator) // tstring // trim(met_file_suffix)
+         filenm = trim( wrf_dir ) // trim( met_file_prefix) // trim(met_file_separator) // domain_name // trim(met_file_separator) &
+                  // tstring // trim(met_file_suffix)
       else
-         filenm = trim( wrf_dir ) // trim( met_file_prefix) // trim(met_file_separator) // domain_name // trim(met_file_separator) // tstring
+         filenm = trim( wrf_dir ) // trim( met_file_prefix) // trim(met_file_separator) // domain_name // trim(met_file_separator) &
+                  // tstring
       end if
 
       status = nf_open( trim(filenm), nf_write, ncid_bc )
