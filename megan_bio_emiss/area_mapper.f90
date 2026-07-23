@@ -181,10 +181,10 @@
    write(*,*) ' '
    write(*,*) 'wrf domain corners'
    write(*,*) '--- ------ -------'
-   write(*,'('' sw corner @ ('',1p,g14.8,'','',g14.8,'')'')') lon(1,1),lat(1,1)
-   write(*,'('' se corner @ ('',1p,g14.8,'','',g14.8,'')'')') lon(ide,1),lat(ide,1)
-   write(*,'('' ne corner @ ('',1p,g14.8,'','',g14.8,'')'')') lon(ide,jde),lat(ide,jde)
-   write(*,'('' nw corner @ ('',1p,g14.8,'','',g14.8,'')'')') lon(1,jde),lat(1,jde)
+   write(*,'('' sw corner @ ('',1p,g15.8,'','',g15.8,'')'')') lon(1,1),lat(1,1)
+   write(*,'('' se corner @ ('',1p,g15.8,'','',g15.8,'')'')') lon(ide,1),lat(ide,1)
+   write(*,'('' ne corner @ ('',1p,g15.8,'','',g15.8,'')'')') lon(ide,jde),lat(ide,jde)
+   write(*,'('' nw corner @ ('',1p,g15.8,'','',g15.8,'')'')') lon(1,jde),lat(1,jde)
    write(*,*) ' '
 
    end subroutine proj_init
@@ -1240,22 +1240,22 @@ vertex_loop : &
          write(*,*) '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
          write(*,*) 'area_map: model cell vertices(x,y)'
          do m = 1,4
-           write(*,'('' ('',g14.8,'','',g14.8,'')'')') model_x(m),model_y(m)
+           write(*,'('' ('',g15.8,'','',g15.8,'')'')') model_x(m),model_y(m)
          end do
          write(*,*) ' '
          write(*,*) 'area_map: model cell vertices(lon,lat)'
          do m = 1,4
-           write(*,'('' ('',g14.8,'','',g14.8,'')'')') mvtx_lon(m),mvtx_lat(m)
+           write(*,'('' ('',g15.8,'','',g15.8,'')'')') mvtx_lon(m),mvtx_lat(m)
          end do
          write(*,*) ' '
          write(*,*) 'area_map: data cell vertices(x,y)'
          do m = 1,4
-           write(*,'('' ('',g14.8,'','',g14.8,'')'')') x(m),y(m)
+           write(*,'('' ('',g15.8,'','',g15.8,'')'')') x(m),y(m)
          end do
          write(*,*) ' '
          write(*,*) 'area_map: data cell vertices(lon,lat)'
          do m = 1,4
-           write(*,'('' ('',g14.8,'','',g14.8,'')'')') data_lon(m),data_lat(m)
+           write(*,'('' ('',g15.8,'','',g15.8,'')'')') data_lon(m),data_lat(m)
          end do
          write(*,*) ' '
          write(*,'(''area_map: dvtx_n_mcell = ('',3(l1,'',''),l1,'')'')') dvtx_n_mcell(:)
@@ -1265,7 +1265,7 @@ vertex_loop : &
          write(*,'(''area_map: vtx cnt      = ('',3(i1,'',''),i1,'')'')') wrk1_cnt(:)
          write(*,*) ' '
          do m = 1,nv
-           write(*,'('' ('',g14.8,'','',g14.8,'')'')') vtx_x(m),vtx_y(m)
+           write(*,'('' ('',g15.8,'','',g15.8,'')'')') vtx_x(m),vtx_y(m)
          end do
          write(*,*) '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
        endif

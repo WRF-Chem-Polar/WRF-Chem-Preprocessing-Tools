@@ -106,8 +106,8 @@
       integer :: vid
       real    :: model_x, model_y, model_dx
       real, allocatable  :: x1d(:), y1d(:)
-      character(len=128) :: filenm
-      character(len=32)  :: spcnam
+      character(len=512) :: filenm
+      character(len=64)  :: spcnam
       logical            :: found
       logical            :: monotonic_moz_x
 
@@ -408,7 +408,7 @@
 !---------------------------------------------------------------
       integer :: i, n
       integer :: status
-      character(len=128) :: filenm
+      character(len=512) :: filenm
       logical :: found
 
       write(*,*) ' '
@@ -504,7 +504,7 @@
 !---------------------------------------------------------------
       integer :: il, iu, ios
       integer :: file_number
-      character(len=5) :: numa
+      character(len=32) :: numa
       logical :: found
 
       found = .false.
@@ -535,8 +535,8 @@
       else
         file_number = file_number - 1
       endif
-      write(numa,'(i5)') file_number+10000
-      filenm(il:iu) = numa(2:5)
+      write(numa,'(i32.32)') file_number
+      filenm(il:iu) = numa(32-(iu-il):32)
 
       write(*,*) 'next_flnm; new file = ',trim(filenm)
 
@@ -671,7 +671,7 @@
       real, allocatable :: p_moz(:)
       real, allocatable :: p_wrf(:)
       real    :: mozval(nlon,nlat,nlev)
-      character(len=20) :: mozspn
+      character(len=32) :: mozspn
 
       integer :: i, j, k, n
 
@@ -808,7 +808,7 @@
       real, allocatable :: wrk1(:)
       real, allocatable :: p_moz(:)
       real, allocatable :: p_wrf(:)
-      character(len=20) :: mozspn
+      character(len=32) :: mozspn
 
       if( wrf2mz_map(ndx)%moz_cnt > 0 ) then
         allocate( wrk(nlev), wrk1(nz), p_moz(nlev), p_wrf(nz), stat=status )
@@ -902,7 +902,7 @@
       integer :: varid
       real    :: accum(nlon,nlat,nlev)
       real    :: tmpval(nlon,nlat,nlev)
-      character(len=20) :: mozspn
+      character(len=32) :: mozspn
 
       nspec = wrf2mz_map(sndx)%moz_cnt
       if( nspec > 0 ) then
@@ -1172,7 +1172,7 @@ level_loop : &
       integer :: i, n
       integer :: vid
       integer :: status
-      character(len=32) :: spcnam
+      character(len=64) :: spcnam
 
       do n = 1,nspec
          write(*,*) 'checking wrf variable ',trim(wrf2mz_map(n)%wrf_name)

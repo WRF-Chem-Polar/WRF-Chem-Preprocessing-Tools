@@ -73,7 +73,7 @@ program map_megan2_emissions
    character(len=19)   :: proj_name(0:3) = (/ 'LATLON             ', 'LAMBERT            ', &
                                               'POLAR STEREOGRAPHIC', 'MERCATOR           ' /)
    CHARACTER (LEN=132) :: varname
-   CHARACTER (LEN=132) :: filespec
+   CHARACTER (LEN=256) :: filespec
    CHARACTER (LEN=80)  :: message
    CHARACTER (LEN=80)  :: attribute
    CHARACTER (LEN=80)  :: units_attribute
@@ -83,7 +83,7 @@ program map_megan2_emissions
    CHARACTER (LEN=80)  :: memord_attribute
    CHARACTER (LEN=80)  :: inpname
    CHARACTER (LEN=80)  :: outpname
-   CHARACTER (LEN=80)  :: wrf_dir
+   CHARACTER (LEN=256)  :: wrf_dir
    CHARACTER (LEN=80)  :: megan_dir
    CHARACTER (LEN=19)  :: Times(1)
    CHARACTER (LEN=3)   :: num
