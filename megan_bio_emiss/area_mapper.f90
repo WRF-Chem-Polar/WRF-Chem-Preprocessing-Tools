@@ -359,7 +359,7 @@ cross_loop : &
              exit
            endif
          enddo
-         lon_e = min( lon_e,nlon+1)
+         lon_e = min( lon_e,nlon)
 
          target_lat = minmax_lat(1)
          do lat_s = 1,nlat+1
@@ -378,7 +378,7 @@ cross_loop : &
              endif
            end do
          endif
-         lat_e = min( lat_e,nlat+1)
+         lat_e = min( lat_e,nlat)
 !-------------------------------------------------------------
 !  check data cell long range for cross over longitude endpoint
 !-------------------------------------------------------------
